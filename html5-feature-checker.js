@@ -15,10 +15,10 @@
 			return !!doc.createElement('canvas').getContext;
 		},
 		'canvas-text': function() {
-			var getContext = doc.createElement('canvas').getContext;
-			return !!getContext && typeof getContext('2d').fillText === 'function';
+			var canvas = doc.createElement('canvas');
+			return (!!canvas.getContext) && (typeof canvas.getContext('2d').fillText === 'function');
 		}
-	}
+	};
 
 	this.h5c = new H5C();
 
