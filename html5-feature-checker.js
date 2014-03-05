@@ -1,23 +1,29 @@
 (function(doc) {
-	var H5C, _checker;
+	var H5C, _checker, _undefined, _cache = {};
 
 	H5C = function() {};
 
 	H5C.prototype = {
-		supports: function(feature) {
-			if (typeof feature === 'string')
-				return _checker[feature]();
-		}
+		canvas: function() { return _undefined(_cache.canvas) ? _checker.canvas() : _cache.canvas; },
+		canvastext: function() { return _undefined(_cache.canvastext) ? _checker.canvastext() : _cache.canvastext; },
+		video: function() { return _undefined(_cache.video) ? _checker.video() : _cache.video; }
 	};
 
 	_checker = {
 		'canvas': function() {
-			return !!doc.createElement('canvas').getContext;
+			return _cache.canvas = !!doc.createElement('canvas').getContext;
 		},
-		'canvas-text': function() {
+		'canvastext': function() {
 			var canvas = doc.createElement('canvas');
-			return (!!canvas.getContext) && (typeof canvas.getContext('2d').fillText === 'function');
+			return _cache.canvastext = (!!canvas.getContext) && (typeof canvas.getContext('2d').fillText === 'function');
+		},
+		'video': function() {
+			return _cache.video = !!doc.createElement('video').canPlayType;
 		}
+	};
+
+	_undefined = function(param) {
+		return typeof param === 'undefined';
 	};
 
 	this.h5c = new H5C();
