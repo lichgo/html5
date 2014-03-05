@@ -7,7 +7,8 @@
 		canvas: function() { return _undefined(_cache.canvas) ? _checker.canvas() : _cache.canvas; },
 		canvastext: function() { return _undefined(_cache.canvastext) ? _checker.canvastext() : _cache.canvastext; },
 		video: function() { return _undefined(_cache.video) ? _checker.video() : _cache.video; },
-		localStorage: function() { return _undefined(_cache.localStorage) ? _checker.localStorage() : _cache.localStorage; }
+		localStorage: function() { return _undefined(_cache.localStorage) ? _checker.localStorage() : _cache.localStorage; },
+		offline: function() { return _undefined(_cache.offline) ? _checker.offline() : _cache.offline; }
 	};
 
 	_checker = {
@@ -23,6 +24,9 @@
 		},
 		'localStorage': function() {
 			return _cache.localStorage = ('localStorage' in window) && window['localStorage'] !== null;
+		},
+		'offline': function() {
+			return _cache.offline = !!window.applicationCache;
 		}
 	};
 
