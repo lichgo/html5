@@ -22,7 +22,8 @@
 		weekInput: function() { return _undefined(_cache.input.week) ? _checker.inputType('week') : _cache.input.week; },
 		timeInput: function() { return _undefined(_cache.input.time) ? _checker.inputType('time') : _cache.input.time; },
 		datetimeInput: function() { return _undefined(_cache.input.datetime) ? _checker.inputType('datetime') : _cache.input.datetime; },
-		datetimelocalInput: function() { return _undefined(_cache.input.datetimelocal) ? _checker.inputType('datetime-local') : _cache.input.datetimeloca; }
+		datetimelocalInput: function() { return _undefined(_cache.input.datetimelocal) ? _checker.inputType('datetime-local') : _cache.input.datetimeloca; },
+		placeholder: function() { return _undefined(_cache.placeholder) ? _checker.placeholder() : _cache.placeholder; }
 	};
 
 	_checker = {
@@ -49,6 +50,9 @@
 			var input = doc.createElement('input');
 			input.setAttribute('type', inputType);
 			return _cache.input[inputType] = input.type === inputType;
+		},
+		'placeholder': function() {
+			return _cache.placeholder = 'placeholder' in doc.createElement('input');
 		}
 	};
 

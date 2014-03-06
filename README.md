@@ -42,4 +42,7 @@ h5c.weekInput();
 h5c.timeInput();
 h5c.datetimeInput();
 h5c.datetimelocalInput();
+
+// Check placeholder
+h5c.placeholder();
 ```
