@@ -24,4 +24,7 @@ h5c.localStorate();
 
 // Check offline (application cache)
 h5c.offline();
+
+// Check geolocation
+h5c.geolocation();
 ```
