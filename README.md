@@ -2,24 +2,26 @@ html5
 =====
 
 ## HTML5 feature checker
-All functions return true if the browser supports the captioned feature, otherwise, return false.
 
-    // import the script: html5-feature-checker.js
-    
-    // h5c is the global variable
+All functions return `true` if the browser supports the captioned feature, otherwise, return `false`.
 
-    // Check canvas
-    h5c.canvas();
+```js
+// import the script: html5-feature-checker.js
 
-    // Check canvas text
-    h5c.canvastext();
+// h5c is the global variable
 
-    // Check video
-    h5c.video();
+// Check canvas
+h5c.canvas();
 
-    // Check localStorage
-    h5c.localStorate();
+// Check canvas text
+h5c.canvastext();
 
-    // Check offline (application cache)
-    h5c.offline();
+// Check video
+h5c.video();
 
+// Check localStorage
+h5c.localStorate();
+
+// Check offline (application cache)
+h5c.offline();
+```
