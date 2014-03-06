@@ -45,4 +45,10 @@ h5c.datetimelocalInput();
 
 // Check placeholder
 h5c.placeholder();
+
+// Check autofocus
+h5c.autofocus();
+
+// Check microdata
+h5c.microdata();
 ```

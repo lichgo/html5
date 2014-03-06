@@ -23,7 +23,9 @@
 		timeInput: function() { return _undefined(_cache.input.time) ? _checker.inputType('time') : _cache.input.time; },
 		datetimeInput: function() { return _undefined(_cache.input.datetime) ? _checker.inputType('datetime') : _cache.input.datetime; },
 		datetimelocalInput: function() { return _undefined(_cache.input.datetimelocal) ? _checker.inputType('datetime-local') : _cache.input.datetimeloca; },
-		placeholder: function() { return _undefined(_cache.placeholder) ? _checker.placeholder() : _cache.placeholder; }
+		placeholder: function() { return _undefined(_cache.placeholder) ? _checker.placeholder() : _cache.placeholder; },
+		autofocus: function() { return _undefined(_cache.autofocus) ? _checker.autofocus() : _cache.autofocus; },
+		microdata: function() { return _undefined(_cache.microdata) ? _checker.microdata() : _cache.microdata; }
 	};
 
 	_checker = {
@@ -53,6 +55,12 @@
 		},
 		'placeholder': function() {
 			return _cache.placeholder = 'placeholder' in doc.createElement('input');
+		},
+		'autofocus': function() {
+			return _cache.autofocus = 'autofocus' in doc.createElement('input');
+		},
+		'microdata': function() {
+			return _cache.microdata = !!doc.getItems;
 		}
 	};
 
