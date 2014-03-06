@@ -1,5 +1,5 @@
 (function(win, doc) {
-	var H5C, _checker, _undefined, _cache = {};
+	var H5C, _checker, _undefined, _cache = { input: {} };
 
 	H5C = function() {};
 
@@ -9,7 +9,20 @@
 		video: function() { return _undefined(_cache.video) ? _checker.video() : _cache.video; },
 		localStorage: function() { return _undefined(_cache.localStorage) ? _checker.localStorage() : _cache.localStorage; },
 		offline: function() { return _undefined(_cache.offline) ? _checker.offline() : _cache.offline; },
-		geolocation: function() { return _undefined(_cache.geolocation) ? _checker.geolocation() : _cache.geolocation; }
+		geolocation: function() { return _undefined(_cache.geolocation) ? _checker.geolocation() : _cache.geolocation; },
+		searchInput: function() { return _undefined(_cache.input.search) ? _checker.inputType('search') : _cache.input.search; },
+		numberInput: function() { return _undefined(_cache.input.number) ? _checker.inputType('number') : _cache.input.number; },
+		rangeInput: function() { return _undefined(_cache.input.range) ? _checker.inputType('range') : _cache.input.range; },
+		colorInput: function() { return _undefined(_cache.input.coloar) ? _checker.inputType('color') : _cache.input.color; },
+		telInput: function() { return _undefined(_cache.input.tel) ? _checker.inputType('tel') : _cache.input.tel; },
+		urlInput: function() { return _undefined(_cache.input.url) ? _checker.inputType('url') : _cache.input.url; },
+		emailInput: function() { return _undefined(_cache.input.email) ? _checker.inputType('email') : _cache.input.email; },
+		dateInput: function() { return _undefined(_cache.input.date) ? _checker.inputType('date') : _cache.input.date; },
+		monthInput: function() { return _undefined(_cache.input.montn) ? _checker.inputType('month') : _cache.input.month; },
+		weekInput: function() { return _undefined(_cache.input.week) ? _checker.inputType('week') : _cache.input.week; },
+		timeInput: function() { return _undefined(_cache.input.time) ? _checker.inputType('time') : _cache.input.time; },
+		datetimeInput: function() { return _undefined(_cache.input.datetime) ? _checker.inputType('datetime') : _cache.input.datetime; },
+		datetimelocalInput: function() { return _undefined(_cache.input.datetimelocal) ? _checker.inputType('datetime-local') : _cache.input.datetimeloca; }
 	};
 
 	_checker = {
@@ -31,6 +44,11 @@
 		},
 		'geolocation': function() {
 			return _cache.geolocation = !!win.navigator.geolocation;
+		},
+		'inputType': function(inputType) {
+			var input = doc.createElement('input');
+			input.setAttribute('type', inputType);
+			return _cache.input[inputType] = input.type === inputType;
 		}
 	};
 

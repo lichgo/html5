@@ -27,4 +27,19 @@ h5c.offline();
 
 // Check geolocation
 h5c.geolocation();
+
+// Check input types
+h5c.searchInput();
+h5c.numberInput();
+h5c.rangeInput();
+h5c.colorInput();
+h5c.telInput();
+h5c.urlInput();
+h5c.emailInput();
+h5c.dateInput();
+h5c.monthInput();
+h5c.weekInput();
+h5c.timeInput();
+h5c.datetimeInput();
+h5c.datetimelocalInput();
 ```
