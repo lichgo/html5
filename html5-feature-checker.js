@@ -1,5 +1,5 @@
 (function(win, doc) {
-	var H5C, _checker, _undefined, _cache = { input: {} };
+	var H5C, _checker, _undefined, _cache = { input: {} };	// _cache is a private variable that keeps the result of feature checking 
 
 	H5C = function() {};
 
@@ -64,10 +64,12 @@
 		}
 	};
 
+	// Check if param is undefined
 	_undefined = function(param) {
 		return typeof param === 'undefined';
 	};
 
+	// Make h5c visible globally
 	this.h5c = new H5C();
 
-})(window, document);
+})(window, document);`
