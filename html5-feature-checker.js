@@ -72,4 +72,4 @@
 	// Make h5c visible globally
 	this.h5c = new H5C();
 
-})(window, document);`
+})(window, document);
